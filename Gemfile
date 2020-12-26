@@ -7,7 +7,6 @@ gem 'rubocop', '~>0.81.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -32,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bulma-rails', '~> 0.9.1'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
@@ -49,7 +49,9 @@ group :development do
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
   gem 'spring'
 end
-
+group :production do
+  gem 'pg'
+end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
